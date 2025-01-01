@@ -1,135 +1,51 @@
 local KeyGuardLibrary = loadstring(game:HttpGet("https://cdn.keyguardian.org/library/v1.0.0.lua"))()
-local trueData = "cc989ab8dd9c4434844a389a320e026e"
-local falseData = "2e720cd5567347ebbc87db4904b4e392"
+local trueData = "7f14193df08141cd9bc073467557c4a3"
+local falseData = "7420aa86c8234975a798b45b4ca43186"
 
 KeyGuardLibrary.Set({
-  publicToken = "9efffcb64d2b485290e3e6f9293d4760",
-  privateToken = "242133ab219a42fd99b3aef29b7c59ee",
+  publicToken = "f88034c69fa14ea0b5fee4e558664add",
+  privateToken = "254f8b69a1c342858430bdce59a2f036",
   trueData = trueData,
   falseData = falseData,
 })
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local chave = ""
+local key = ""
 
--- Janela principal com novo layout
-local Janela = Fluent:CreateWindow({
-    Título = "Sistema de Chave",
-    SubTítulo = "Speed script hub",
-    LarguraDaAba = 180, -- Aumentado para acomodar mais texto
-    Tamanho = UDim2.fromOffset(650, 450), -- Maior para um novo layout
-    Acrilico = true,
-    Tema = "Dark",
-    MinimizarTecla = Enum.KeyCode.LeftControl,
-    BordaRedonda = true,
-    Sombra = true,
-    Fonte = Enum.Font.GothamBold,
-    CorDaBorda = Color3.fromRGB(0, 150, 136), -- Cor de borda verde para um toque moderno
-    CorDoFundo = Color3.fromRGB(20, 20, 20), -- Fundo ainda mais escuro
-    CorDominante = Color3.fromRGB(0, 120, 215), -- Cor de destaque adicional
+local Window = Fluent:CreateWindow({
+    Title = "Key System",
+    SubTitle = "speed script hub ",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 340),
+    Acrylic = false,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 
-local Abas = {
-    SistemaChave = Janela:AddTab({ Título = "🔑 Sistema de Chave" }), -- Ícone e título juntos
+local Tabs = {
+    KeySys = Window:AddTab({ Title = "Key System", Icon = "key" }),
 }
 
--- Elemento de cabeçalho decorativo
-local Cabecalho = Abas.SistemaChave:AddLabel({
-    Texto = "Bem-vindo ao Speed script hub!",
-    CorDoTexto = Color3.fromRGB(255, 255, 255),
-    TamanhoDoTexto = 18,
-    Fonte = Enum.Font.GothamBold,
-    Posição = UDim2.fromOffset(20, 20),
-    CorDeFundo = Color3.fromRGB(0, 120, 215), -- Fundo destacado para o cabeçalho
-    Padding = 10, -- Espaçamento interno para o texto
-    AlinhamentoDoTexto = Enum.TextXAlignment.Center, -- Alinhamento centralizado
+local Entkey = Tabs.KeySys:AddInput("Input", {
+    Title = "Enter Key",
+    Description = "Enter Key Here",
+    Default = "",
+    Placeholder = "Enter key…",
+    Numeric = false,
+    Finished = false,
+    Callback = function(Value)
+        key = Value
+    end
 })
 
-local InserirChave = Abas.SistemaChave:AddInput("Input", {
-    Título = "Inserir Chave",
-    Descrição = "Insira a Chave Aqui",
-    Padrão = "",
-    Placeholder = "Insira a chave...",
-    Numérico = false,
-    Finalizado = false,
-    Callback = function(Valor)
-        chave = Valor
-    end,
-    CorDoTexto = Color3.fromRGB(255, 255, 255),
-    CorDeFundo = Color3.fromRGB(50, 50, 50),
-    CorDaBorda = Color3.fromRGB(70, 70, 70),
-    TamanhoDoTexto = 14,
-    Padding = 5,
-})
-
-local VerificarChave = Abas.SistemaChave:AddButton({
-    Título = "Verificar Chave",
-    Descrição = "Insira a chave antes de pressionar este botão",
+local Checkkey = Tabs.KeySys:AddButton({
+    Title = "Check Key",
+    Description = "Enter Key before pressing this button",
     Callback = function()
-        local resposta = KeyGuardLibrary.validateDefaultKey(chave)
-        if resposta == trueData then
-           print("Chave é válida")
-           Janela:Close() -- Fecha a janela automaticamente após a validação da chave
-        else
-local support = {
-    ["Fluxus"] = true,
-    ["Trigon"] = true,
-    ["Codex"] = true,
-    ["Delta"] = true,
-    ["Vega X"] = true,
-    ["Hydrogen"] = true,
-    ["alysse"] = true,
-    ["ArceusX"] = true,
-    ["Electron"] = true,
-}
-
-local ExecutorUsing = is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or secure_load and "Sentinel" or KRNL_LOADED and "Krnl" or SONA_LOADED and "Sona" or "Fluxus"
-                    local HttpService = game:GetService("HttpService")
-                     local Data =
-                        {
-                            ["embeds"]= {
-                                {            
-                                    ["title"]= "𝙥𝙡𝙖𝙮𝙚𝙧𝙨 𝙥𝙧𝙤𝙛𝙞𝙡𝙚💻";
-                                    ["url"]= "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId;
-                                    ["description"]= "||```"..game.Players.LocalPlayer.DisplayName.." ("..game.Players.LocalPlayer.Name..")```||";
-                                    ["color"]= tonumber(0x7269da);
-                                     ["thumbnail"] = {["url"] = "https://cdn.discordapp.com/attachments/1171840145335537824/1201725336598106183/Screenshot_2024-01-28-16-39-42-226_com.facebook.katana-edit.jpg?ex=65cadcef&is=65b867ef&hm=850789c6f502230b1eaa6ffed401f83a8c7d3a5ffea10e13ef382b3806a80615&"};
-                                    
-                                    ["fields"]= {
-                                        {
-                                            ["name"]= "𝙀𝙭𝙚𝙘𝙪𝙩𝙤𝙧📑",
-                                            ["value"]= "```"..ExecutorUsing.."```",
-                                            ["inline"]= true
-                                        },
-                                        {
-                                            ["name"]= "𝘼𝙜𝙚🗓",
-                                            ["value"]= "```"..game.Players.LocalPlayer.AccountAge.." Day```",
-                                            ["inline"]= true
-                                        },
-                                        {
-                                            ["name"]= "𝙎𝙘𝙧𝙞𝙥𝙩 𝙎𝙩𝙖𝙩𝙪𝙨ℹ️",
-                                            ["value"]= "```Người dùng đã chạy script MutanoX-HUB Auto Farm Cảm Ơn Vì Đã Dùng RinX!!!!```",
-                                            ["inline"]= true
-                                            },
-                                       {
-                                     ["name"] = "𝙅𝙤𝙗 𝙄𝙙",
-                                     ["value"]= '```game:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
-                                     ["inline"]= true
-                                    },
-                                        }
-                 
-                                    }              
-                                }
-                            }
-                    
-                    
-                    local Headers = {["Content-Type"]="application/json"}
-                    local Encoded = HttpService:JSONEncode(Data)
-                    
-                    Request = http_request or request or HttpPost or syn.request
-                    local Final = {Url = "https://discord.com/api/webhooks/1203612065302970389/GHxtX7Y_Pdy2lQbZPo91hEfvXRagarlM5OYjAFy7NiaVFKLbbZuRpDl-SX3w3y6Cv24W", Body = Encoded, Method = "POST", Headers = Headers}
-                    Request(Final)
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Knuxy92/Ui-linoria/main/Fluent/Fluent.lua"))()
+        local response = KeyGuardLibrary.validateDefaultKey(key)
+        if response == trueData then
+           print("Key is valid")
+           local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Knuxy92/Ui-linoria/main/Fluent/Fluent.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
@@ -4337,3 +4253,18 @@ while true do
     wait(0)
 end
 end
+        else
+           print("Key is invalid")
+        end
+    end
+})
+
+local Getkey = Tabs.KeySys:AddButton({
+    Title = "Get Key",
+    Description = "Get Key here",
+    Callback = function()
+       setclipboard(KeyGuardLibrary.getLink())
+    end
+})
+
+Window:SelectTab(1)
